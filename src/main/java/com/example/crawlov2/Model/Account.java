@@ -1,5 +1,7 @@
 package com.example.crawlov2.Model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,15 +19,12 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int account_id;
+    public Long id;
     public String Region;
     public String Default_website;
     public String Websites;
     public String Components;
-    public boolean Sales;
-    public boolean IsActive;
     
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @OneToMany(mappedBy = "account")
+    private List<Access> accesses;
 }
