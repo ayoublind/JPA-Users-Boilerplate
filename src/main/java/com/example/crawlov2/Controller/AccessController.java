@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.crawlov2.Model.Access;
+import com.example.crawlov2.Model.AccessDTO;
 import com.example.crawlov2.Service.AccessService;
 
 import java.util.List;
@@ -21,6 +22,11 @@ public class AccessController {
     @GetMapping
     public List<Access> getAllAccesses() {
         return accessService.getAllAccesses();
+    }
+
+    @GetMapping("/dto")
+    public List<AccessDTO> getAllAccessDTOs() {
+        return accessService.getAllAccessDTOs();
     }
 
     @GetMapping("/{id}")
